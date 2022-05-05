@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import GameScene from "../components/GameScene";
 import ResetButton from "../components/ResetButton";
 import gameData from "../data/test-game.json"
