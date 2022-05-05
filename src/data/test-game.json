@@ -1,0 +1,16 @@
+{
+    "scenes": {
+        "1" : {
+            "text": "First scene",
+            "actions": [{ "text": "Go to second scene", "location": 2 }, { "text": "Go to third scene", "location": 3 }]
+        },
+        "2" : {
+            "text": "Second scene",
+            "actions": [{ "text": "Go to first scene", "location": 1 }]
+        },
+        "3" : {
+            "text": "Third scene, which is the end",
+            "actions": []
+        }
+    }
+}
