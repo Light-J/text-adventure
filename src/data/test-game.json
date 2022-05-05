@@ -1,16 +1,30 @@
 {
     "scenes": {
-        "1" : {
+        "start_scene" : {
             "text": "First scene",
-            "actions": [{ "text": "Go to second scene", "location": 2 }, { "text": "Go to third scene", "location": 3 }]
+            "actions": [
+                { "text": "Go to second scene", "destination": "second_scene_name" },
+                { "text": "Go to the end", "destination": "final_scene" }
+            ]
         },
-        "2" : {
+        "second_scene_name" : {
             "text": "Second scene",
-            "actions": [{ "text": "Go to first scene", "location": 1 }]
+            "actions": [
+                { "text": "Go to first scene", "destination": "start_scene" }
+            ]
         },
-        "3" : {
+        "final_scene" : {
             "text": "Third scene, which is the end",
             "actions": []
+        },
+        "special_story_scene" : {
+            "text": "This is a special story scene, it occurs as a part of the story",
+            "actions": [
+                { "text": "Go to first scene", "destination": "start_scene" }
+            ]
         }
-    }
+    },
+    "storySteps": [
+        {"occursAt": 4, "destination":"special_story_scene"}
+    ]
 }
