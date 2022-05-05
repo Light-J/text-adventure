@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
+  margin-left: 10px;
   align-items: center;
   appearance: none;
   background-color: #61000a;
@@ -13,14 +14,13 @@ const Button = styled.button`
   cursor: pointer;
   display: inline-flex;
   font-family: "JetBrains Mono",monospace;
-  height: 48px;
+  height: 40px;
   justify-content: center;
   line-height: 1;
   list-style: none;
   overflow: hidden;
   padding-left: 16px;
   padding-right: 16px;
-  position: relative;
   text-align: left;
   text-decoration: none;
   transition: box-shadow .15s,transform .15s;

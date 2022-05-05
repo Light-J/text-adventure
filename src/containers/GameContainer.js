@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import GameScene from "../components/GameScene";
 import ResetButton from "../components/ResetButton";
 import gameData from "../data/test-game.json"
+import GameControls from "./ControlsContainer";
 
 const GameContainer = () => {
     const [currentScene, setCurrentScene] = useState("start_scene");
@@ -25,11 +26,12 @@ const GameContainer = () => {
     }
 
     return <div>
+            <GameControls
+                resetGame={resetGame} />
             <GameScene 
             sceneDetails={gameData.scenes[currentScene]}
             updateGameScene={updateGameScene}
             />
-            <ResetButton onReset={resetGame} />
         </div>
 }
 
