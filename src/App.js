@@ -7,8 +7,8 @@ function App() {
   return (
     
     <div className="App">
-      <div class="refresh"></div>
-      <div class="cligno"></div>
+      <div className="refresh"></div>
+      <div className="cligno"></div>
       <GameContainer />
     </div>
   );
