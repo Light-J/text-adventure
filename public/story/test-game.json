@@ -1,0 +1,38 @@
+{
+    "scenes": {
+        "start_scene" : {
+            "text": "First scene",
+            "actions": [
+                { "text": "Go to second scene", "destination": "second_scene_name" },
+                { "text": "Go to the end", "destination": "final_scene" }
+            ]
+        },
+        "second_scene_name" : {
+            "text": "Second scene",
+            "actions": [
+                { "text": "Go to first scene", "destination": "start_scene" },
+                { "text": "Go to a scene that contains a video", "destination": "scene_with_some_media" }
+            ]
+        },
+        "scene_with_some_media" : {
+            "text": "This scene has a video",
+            "media": "story/sample-video.mp4",
+            "actions": [
+                { "text": "Go to first scene", "destination": "start_scene" }
+            ]
+        },
+        "final_scene" : {
+            "text": "Third scene, which is the end. Hit restart to play again",
+            "actions": []
+        },
+        "special_story_scene" : {
+            "text": "This is a special story scene, it occurs as a part of the story",
+            "actions": [
+                { "text": "Go to first scene", "destination": "start_scene" }
+            ]
+        }
+    },
+    "storySteps": [
+        {"occursAt": 4, "destination":"special_story_scene"}
+    ]
+}
