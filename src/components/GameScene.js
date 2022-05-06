@@ -2,6 +2,7 @@ import React from "react";
 import Action from "./Action";
 import styled from 'styled-components';
 import ReactPlayer from "react-player";
+import SceneText from "./SceneText";
 
 const SceneScreen = styled.div`
 `;
@@ -14,7 +15,7 @@ const GameScene = ({sceneDetails, updateGameScene}) => {
     return <div>
             <SceneScreen>
                 {(sceneDetails.media) ? <ReactPlayer playing url={sceneDetails.media} /> : null}
-                <p>{sceneDetails.text}</p>
+                <SceneText text={sceneDetails.text} />
             </SceneScreen>
             
             <ActionPanel>
