@@ -2,6 +2,16 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const AnimatedText = styled.p`
+    font-family: "Courier New", Courier, monospace;
+    font-size: 23px;
+    letter-spacing: 0.4px;
+    word-spacing: -3.8px;
+    color: #ffffff;
+    font-weight: 400;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
 `;
 
 
