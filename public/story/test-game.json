@@ -1,38 +1,95 @@
 {
     "scenes": {
         "start_scene" : {
-            "text": "First scene",
+            "text": [
+                    "You are driving along a very very long road",
+                    "suddenly! A car pulls out infront of you",
+                    "what should you do?"],
             "actions": [
-                { "text": "Go to second scene", "destination": "second_scene_name" },
-                { "text": "Go to the end", "destination": "final_scene" }
+                { "text": "Swerve out the way", "destination": "swerve_scene" },
+                { "text": "Slam on the brakes", "destination": "argument_scene" },
+                { "text": "Drive into the car", "destination": "dead_ending" }
             ]
         },
-        "second_scene_name" : {
-            "text": "Second scene",
+        "swerve_scene" : {
+            "text": [
+                "Congratulations",
+                "You managed to avoid the crash.",
+                "However in the evasive manoeuvre you have caused damage to your car"
+            ],
             "actions": [
-                { "text": "Go to first scene", "destination": "start_scene" },
-                { "text": "Go to a scene that contains a video", "destination": "scene_with_some_media" }
+                { "text": "Pull over", "destination": "dead_ending" },
+                { "text": "Continue driving", "destination": "loop_scene_1" }
             ]
         },
-        "scene_with_some_media" : {
-            "text": "This scene has a video",
+        "argument_scene" : {
+            "text": [
+                "Unfortunaly the person in the car that pulled out is not very nice",
+                "They begin shouting at you and jump out of their car"
+            ],
+            "actions": [
+                { "text": "Start arguing back", "destination": "dead_ending" },
+                { "text": "Quickly drive off", "destination": "peaceful_ending" }
+            ]
+        },
+        "loop_scene_1" : {
+            "text": [
+                "There was no issue with your car",
+                "the only way ahead is a round about"],
+            "actions": [{ "text": "Aproach the round about", "destination": "loop_scene_2" }]
+        },
+        "loop_scene_2" : {
+            "text": [
+                "You are now on the round about",
+                "There a couple of exits"
+            ],
+            "actions": [
+                { "text": "Take exit to the north", "destination": "loop_scene_roundabout_north" },
+                { "text": "Take exit to the south", "destination": "loop_scene_roundabout_south" }
+            ]
+        },
+        "loop_scene_roundabout_north" : {
+            "text": [
+                "This was a deadend"
+            ],
+            "actions": [
+                { "text": "Drive off the end of the road", "destination": "dead_ending" },
+                { "text": "Turn around and go back to the roundabout", "destination": "loop_scene_2" }
+            ]
+        },
+        "loop_scene_roundabout_south" : {
+            "text": [
+                "This was a deadend"
+            ],
+            "actions": [
+                { "text": "Drive off the end of the road", "destination": "dead_ending" },
+                { "text": "Turn around and go back to the roundabout", "destination": "loop_scene_2" }
+            ]
+        },
+
+        "peaceful_ending" : {
+            "text": [
+                "You made it, you can now continue your journey",
+                "exploring the world"],
             "media": "story/sample-video.mp4",
-            "actions": [
-                { "text": "Go to first scene", "destination": "start_scene" }
-            ]
-        },
-        "final_scene" : {
-            "text": "Third scene, which is the end. Hit restart to play again",
             "actions": []
         },
-        "special_story_scene" : {
-            "text": "This is a special story scene, it occurs as a part of the story",
+        "dead_ending" : {
+            "text": [
+                "Unfortuntly your trip is now over",
+                "looks like you might need to phone your breakdown"
+            ],
+            "media": "story/sample-video.mp4",
+            "actions": []
+        },
+        "out_of_fuel_scene" : {
+            "text": ["Youve ran out of fuel"],
             "actions": [
-                { "text": "Go to first scene", "destination": "start_scene" }
+                { "text": "Continue", "destination": "dead_ending" }
             ]
         }
     },
     "storySteps": [
-        {"occursAt": 4, "destination":"special_story_scene"}
+        {"occursAt": 10, "destination":"out_of_fuel_scene"}
     ]
 }

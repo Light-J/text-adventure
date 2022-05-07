@@ -14,35 +14,26 @@ const AnimatedText = styled.p`
     text-transform: none;
 `;
 
+const SceneText = ({text, delay = 0}) => {
+    const [displayedMessage, setDisplayedMessage] = useState("");
+    const [letterPointer, setLetterPointer] = useState(0);
+    const [startRendering, setStartRendering] = useState(false)
 
-const SceneText = ({text}) => {
-    const [originalTextArray, setOriginalTextArray] = useState(text.split(""));
-    const [displayedMessage, setDisplayedMessage] = useState(text.charAt(0));
-    const [originalText, setOriginalText] = useState(text);
+    setTimeout(() => setStartRendering(true), delay)
+    useEffect(() => {
+        const updateDisplayedMessage = (letter) => {
+            setDisplayedMessage(displayedMessage.concat(letter))
+        }
 
-  useEffect(() => {
-    // If the re-render if done by the text changing then we need to reset
-    if(text !== originalText) {
-        let tmpOriginalTextArray = text.split("");
-        setDisplayedMessage(tmpOriginalTextArray.shift())
-        setOriginalTextArray(tmpOriginalTextArray)
-        
-        setOriginalText(text)
-    }
+        if (letterPointer < text.length && startRendering){
+            let nextLetter = text.charAt(letterPointer)
+            setTimeout(() => {
+                updateDisplayedMessage(nextLetter)
+                setLetterPointer(l => l+1);
+            }, 600 * 1/text.length)
+        }
 
-    // This is interesting so break it down
-    // First we want to set this as a timeout so that it occurs after the specified duration
-    // The specified duration is proportional to the text length, therefore longer texts render more quickly
-    // We then update the displayed text, useEffect has a dependency on displayed text and so
-    // when we update that then this is called again
-    // provided that the text array still has some letters in it
-    if(originalTextArray.length > 0) setTimeout(
-        () => setDisplayedMessage(displayedMessage.concat(originalTextArray.shift())), 600 * 1/text.length);
-
-  }, [displayedMessage, text]);
-
-
-
+    }, [text, delay, displayedMessage, startRendering, letterPointer]);
 
     return <AnimatedText>{displayedMessage}</AnimatedText>
 }
