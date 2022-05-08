@@ -46,6 +46,10 @@ const Button = styled.button`
     box-shadow: #D6D6E7 0 3px 7px inset;
     transform: translateY(2px);
     }
+
+    @media screen and (max-width: 600px) {
+      width: 90%;
+    }
 `;
 
 const Action = ({text, destination, updateGameScene}) => {

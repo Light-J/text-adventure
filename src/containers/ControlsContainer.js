@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ResetButton from "../components/ResetButton";
 
 const GameControlRibbon = styled.div`
-    position: absolute;
+    position: fixed;
     top: 00px;
     right: 25px;
     align-items: center;
